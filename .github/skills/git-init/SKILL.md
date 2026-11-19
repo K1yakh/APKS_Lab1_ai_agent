@@ -16,12 +16,14 @@ disable-model-invocation: true
 1. Виконай `git rev-parse --is-inside-work-tree`.
 2. Якщо це не Git-репозиторій, повідом про помилку й не ініціалізуй його без явного дозволу користувача.
 3. Перевір `.gitignore`; створи або доповни його без видалення наявних правил.
-4. Переконайся, що ігноруються `node_modules/`, `dist/`, `coverage/`, `.env` і секрети.
-5. Покажи `git status --short --branch` і поточну гілку через `git branch --show-current`.
+4. Створи або доповни `.gitattributes` рядками `* text=auto`, `*.sh text eol=lf` і `*.bat text eol=crlf`, не дублюючи рядки, якщо вони вже є.
+5. Переконайся, що ігноруються `node_modules/`, `dist/`, `coverage/`, `.env` і секрети.
+6. Покажи `git status --short --branch` і поточну гілку через `git branch --show-current`.
 
 ## Очікувані файли
 
 - `.gitignore`;
+- `.gitattributes`;
 - наявні Git-метадані репозиторію не змінюються.
 
 ## Команди перевірки

@@ -85,6 +85,7 @@ Commands реалізовані як skills-файли з `disable-model-invocat
 | `ci.sh` / `ci.bat` | Кросплатформні локальні CI-команди |
 | `.github/workflows/ci.yml` | GitHub Actions matrix і artifact |
 | `.gitignore` | Виключення залежностей, артефактів і секретів |
+| `.gitattributes` | Фіксує закінчення рядків (LF для `ci.sh`, CRLF для `ci.bat`) |
 | `package-lock.json` | Зафіксовані версії залежностей для `npm ci` |
 | `README.md` | Опис і інструкція запуску |
 | `docs/architecture.md` | Архітектура агента |

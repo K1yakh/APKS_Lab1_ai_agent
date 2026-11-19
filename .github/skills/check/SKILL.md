@@ -20,11 +20,12 @@ disable-model-invocation: true
 4. Запусти `npm run build` і `npm test`.
 5. Перевір, що `ci.yml` містить `ubuntu-latest`, `windows-latest`, `macos-latest` і викликає лише `ci.sh` або `ci.bat`, без прямих npm-команд.
 6. Перевір, що `node_modules/` і `dist/` є в `.gitignore` та не відстежуються Git.
-7. Виведи таблицю з колонками `Перевірка`, `Результат`, `Деталі` та значеннями `PASS`/`FAIL`, потім загальний результат.
+7. Перевір, що `.gitattributes` містить правило `*.sh text eol=lf`.
+8. Виведи таблицю з колонками `Перевірка`, `Результат`, `Деталі` та значеннями `PASS`/`FAIL`, потім загальний результат.
 
 ## Очікувані файли
 
-Перевіряються `package.json`, `package-lock.json`, `tsconfig.json`, `README.md`, `src/`, `tests/`, `ci.sh`, `ci.bat`, `.gitignore`, `.github/agents/` і `.github/skills/`; нічого з переліченого не створюється чи не редагується.
+Перевіряються `package.json`, `package-lock.json`, `tsconfig.json`, `README.md`, `src/`, `tests/`, `ci.sh`, `ci.bat`, `.gitignore`, `.gitattributes`, `.github/agents/` і `.github/skills/`; нічого з переліченого не створюється чи не редагується.
 
 ## Команди перевірки
 
