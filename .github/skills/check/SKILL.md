@@ -1,8 +1,8 @@
 ---
+name: check
 description: "Безпечна повна перевірка manifest, skills, prompts, TypeScript-проєкту та CI без змін"
-agent: build-engineer
+disable-model-invocation: true
 ---
-
 # Check
 
 ## Передумови

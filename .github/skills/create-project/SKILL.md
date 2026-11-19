@@ -1,8 +1,8 @@
 ---
+name: create-project
 description: "Створити базовий TypeScript Hello World за skill project-scaffold"
-agent: build-engineer
+disable-model-invocation: true
 ---
-
 # Create Project
 
 ## Передумови

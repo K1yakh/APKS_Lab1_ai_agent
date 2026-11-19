@@ -1,8 +1,8 @@
 ---
+name: git-init
 description: "Підготувати Git-репозиторій, .gitignore і показати поточний стан та гілку"
-agent: build-engineer
+disable-model-invocation: true
 ---
-
 # Git Init
 
 ## Передумови

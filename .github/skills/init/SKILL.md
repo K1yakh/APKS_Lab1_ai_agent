@@ -1,8 +1,8 @@
 ---
+name: init
 description: "Повністю підготувати й перевірити TypeScript Hello World через послідовність build-engineer prompts"
-agent: build-engineer
+disable-model-invocation: true
 ---
-
 # Init
 
 ## Передумови

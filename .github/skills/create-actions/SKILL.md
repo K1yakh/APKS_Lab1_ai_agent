@@ -1,8 +1,8 @@
 ---
+name: create-actions
 description: "Створити кросплатформний GitHub Actions workflow за skill github-actions"
-agent: build-engineer
+disable-model-invocation: true
 ---
-
 # Create Actions
 
 ## Передумови

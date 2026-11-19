@@ -1,8 +1,8 @@
 ---
+name: create-build
 description: "Додати збірку, Vitest BasicAddition і локальні CI-скрипти за skill build-and-test"
-agent: build-engineer
+disable-model-invocation: true
 ---
-
 # Create Build
 
 ## Передумови
