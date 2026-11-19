@@ -16,7 +16,7 @@ TypeScript, npm scripts і Vitest.
 
 Проєкт містить custom agent `build-engineer` для GitHub Copilot у VS Code. Агент створює та перевіряє кросплатформний TypeScript Hello World на Node.js 22, налаштовує npm scripts, юніт-тест Vitest для функції `add`, локальні CI-скрипти та GitHub Actions для Linux, Windows і macOS.
 
-Конфігурація агента, skills і prompts розміщені в каталозі `.github`.
+Конфігурація агента, skills і commands розміщені в каталозі `.github`. Commands зберігаються як `.github/skills/<назва>/SKILL.md` з `disable-model-invocation: true` і запускаються в Copilot Chat як `/назва`.
 
 ## Вимоги
 

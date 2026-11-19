@@ -1,9 +1,10 @@
 ---
 name: check
-description: "Безпечна повна перевірка manifest, skills, prompts, TypeScript-проєкту та CI без змін"
+description: "Безпечна повна перевірка manifest, skills, commands, TypeScript-проєкту та CI без змін"
 disable-model-invocation: true
 ---
 # Check
+Виконуй за правилами агента [build-engineer](../../agents/build-engineer.agent.md).
 
 ## Передумови
 
@@ -14,7 +15,7 @@ disable-model-invocation: true
 ## Дії
 
 1. Перевір наявність manifest `package.json`, `package-lock.json`, `tsconfig.json`, `README.md`, `src/`, `tests/`, `ci.sh`, `ci.bat`.
-2. Перевір наявність трьох skills і шести commands у `.github/prompts`.
+2. Перевір наявність трьох skills (`project-scaffold`, `build-and-test`, `github-actions`) і шести commands (`git-init`, `create-project`, `create-build`, `create-actions`, `check`, `init`) як `.github/skills/<назва>/SKILL.md` із `disable-model-invocation: true`.
 3. Перевір структуру проєкту, scripts, `src/add.ts`, `tests/add.test.ts`, `BasicAddition`.
 4. Запусти `npm run build` і `npm test`.
 5. Перевір, що `ci.yml` містить `ubuntu-latest`, `windows-latest`, `macos-latest` і викликає лише `ci.sh` або `ci.bat`, без прямих npm-команд.
@@ -23,7 +24,7 @@ disable-model-invocation: true
 
 ## Очікувані файли
 
-Перевіряються `package.json`, `package-lock.json`, `tsconfig.json`, `README.md`, `src/`, `tests/`, `ci.sh`, `ci.bat`, `.gitignore`, `.github/agents/`, `.github/skills/` і `.github/prompts/`; нічого з переліченого не створюється чи не редагується.
+Перевіряються `package.json`, `package-lock.json`, `tsconfig.json`, `README.md`, `src/`, `tests/`, `ci.sh`, `ci.bat`, `.gitignore`, `.github/agents/` і `.github/skills/`; нічого з переліченого не створюється чи не редагується.
 
 ## Команди перевірки
 

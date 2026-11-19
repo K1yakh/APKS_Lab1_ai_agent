@@ -4,16 +4,17 @@ description: "Додати збірку, Vitest BasicAddition і локальн�
 disable-model-invocation: true
 ---
 # Create Build
+Виконуй за правилами агента [build-engineer](../../agents/build-engineer.agent.md).
 
 ## Передумови
 
-- Базовий TypeScript-проєкт створено prompt-ом `create-project`.
-- Доступний skill `.github/skills/build-and-test/SKILL.md`.
+- Базовий TypeScript-проєкт створено command-ом [`create-project`](../create-project/SKILL.md).
+- Доступний skill [`build-and-test`](../build-and-test/SKILL.md).
 - Node.js 22 і npm доступні в терміналі.
 
 ## Дії
 
-1. Прочитай і застосуй `.github/skills/build-and-test/SKILL.md`.
+1. Прочитай і застосуй [`build-and-test`](../build-and-test/SKILL.md).
 2. Додай scripts `build: tsc`, `test: vitest run`, `start: node dist/hello.js`.
 3. Створи `src/add.ts` і `tests/add.test.ts` із тестом `BasicAddition`.
 4. Створи `ci.sh` з `set -euo pipefail` і `ci.bat` з `call` та перевіркою `errorlevel`.

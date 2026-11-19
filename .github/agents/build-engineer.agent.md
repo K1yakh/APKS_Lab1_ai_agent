@@ -32,12 +32,12 @@ tools: [read, edit, search, execute]
 
 ### Commands
 
-- `.github/prompts/git-init` — ініціалізація Git, лише якщо це потрібно і дозволено станом репозиторію;
-- `.github/prompts/create-project` — створення або узгодження структури TypeScript-проєкту;
-- `.github/prompts/create-build` — створення конфігурації збірки, тестів і CI-скриптів;
-- `.github/prompts/create-actions` — створення GitHub Actions workflow;
-- `.github/prompts/check` — повна перевірка результату;
-- `.github/prompts/init` — початкова підготовка та визначення стану репозиторію.
+- `.github/skills/git-init/SKILL.md` — ініціалізація Git, лише якщо це потрібно і дозволено станом репозиторію;
+- `.github/skills/create-project/SKILL.md` — створення або узгодження структури TypeScript-проєкту;
+- `.github/skills/create-build/SKILL.md` — створення конфігурації збірки, тестів і CI-скриптів;
+- `.github/skills/create-actions/SKILL.md` — створення GitHub Actions workflow;
+- `.github/skills/check/SKILL.md` — повна перевірка результату;
+- `.github/skills/init/SKILL.md` — початкова підготовка та визначення стану репозиторію.
 
 Якщо потрібний skill або command відсутній, не вигадуй його вміст: виконай необхідні кроки безпосередньо, дотримуючись цих правил.
 
@@ -97,7 +97,7 @@ tools: [read, edit, search, execute]
 - `ci.bat`;
 - `.gitignore` із `node_modules/`, `dist/`, `coverage/` і правилами для секретів;
 - `.github/workflows/ci.yml` із перевірками на `ubuntu-latest`, `windows-latest` і `macos-latest`, який викликає лише відповідні CI-скрипти;
-- за наявності в репозиторії — узгоджені `.github/skills/project-scaffold`, `.github/skills/build-and-test`, `.github/skills/github-actions` і `.github/prompts/git-init`, `create-project`, `create-build`, `create-actions`, `check`, `init`.
+- за наявності в репозиторії — узгоджені `.github/skills/project-scaffold`, `.github/skills/build-and-test`, `.github/skills/github-actions` і `.github/skills/git-init/SKILL.md`, `create-project`, `create-build`, `create-actions`, `check`, `init` з `disable-model-invocation: true`.
 
 Перед завершенням успішно пройди:
 

@@ -1,14 +1,15 @@
 ---
 name: init
-description: "Повністю підготувати й перевірити TypeScript Hello World через послідовність build-engineer prompts"
+description: "Повністю підготувати й перевірити TypeScript Hello World через послідовність build-engineer commands"
 disable-model-invocation: true
 ---
 # Init
+Виконуй за правилами агента [build-engineer](../../agents/build-engineer.agent.md).
 
 ## Передумови
 
 - Робоча папка є коренем репозиторію.
-- Доступні prompts `git-init`, `create-project`, `create-build`, `create-actions`, `check`.
+- Доступні commands `git-init`, `create-project`, `create-build`, `create-actions`, `check`.
 - Поточна гілка має бути `feature/...`; якщо це `develop` або `master`, зупинися з повідомленням і нічого не створюй.
 - Користувач дозволив виконати повну підготовку, але не дозволив `git push`.
 
@@ -16,17 +17,17 @@ disable-model-invocation: true
 
 Виконуй послідовно та після кожного кроку перевіряй результат:
 
-1. [`git-init.prompt.md`](./git-init.prompt.md) — перевір Git, `.gitignore`, status і гілку.
-2. [`create-project.prompt.md`](./create-project.prompt.md) — застосуй [`project-scaffold`](../skills/project-scaffold/SKILL.md).
-3. [`create-build.prompt.md`](./create-build.prompt.md) — застосуй [`build-and-test`](../skills/build-and-test/SKILL.md).
-4. [`create-actions.prompt.md`](./create-actions.prompt.md) — застосуй [`github-actions`](../skills/github-actions/SKILL.md).
-5. [`check.prompt.md`](./check.prompt.md) — виконай повну read-only перевірку та таблицю PASS/FAIL.
+1. [`git-init`](../git-init/SKILL.md) — перевір Git, `.gitignore`, status і гілку.
+2. [`create-project`](../create-project/SKILL.md) — застосуй [`project-scaffold`](../project-scaffold/SKILL.md).
+3. [`create-build`](../create-build/SKILL.md) — застосуй [`build-and-test`](../build-and-test/SKILL.md).
+4. [`create-actions`](../create-actions/SKILL.md) — застосуй [`github-actions`](../github-actions/SKILL.md).
+5. [`check`](../check/SKILL.md) — виконай повну read-only перевірку та таблицю PASS/FAIL.
 
 Після кожного кроку зупиняйся, якщо перевірка не пройшла. Наприкінці надай підсумковий звіт із виконаними кроками, файлами, командами та результатами. Не виконуй `git push`.
 
 ## Очікувані файли
 
-Очікуй `package.json`, `package-lock.json`, `tsconfig.json`, `README.md`, `src/hello.ts`, `src/add.ts`, `tests/add.test.ts`, `ci.sh`, `ci.bat`, `.gitignore`, `.github/workflows/ci.yml`, три skills і шість prompts.
+Очікуй `package.json`, `package-lock.json`, `tsconfig.json`, `README.md`, `src/hello.ts`, `src/add.ts`, `tests/add.test.ts`, `ci.sh`, `ci.bat`, `.gitignore`, `.github/workflows/ci.yml`, три skills і шість commands.
 
 ## Команди перевірки
 
@@ -41,7 +42,7 @@ Linux/macOS: ./ci.sh
 git ls-files --stage ci.sh
 ```
 
-Наприкінці застосуй усі read-only перевірки з `check.prompt.md` і виведи загальну таблицю.
+Наприкінці застосуй усі read-only перевірки з [`check`](../check/SKILL.md) і виведи загальну таблицю.
 
 ## Повідомлення про помилку
 

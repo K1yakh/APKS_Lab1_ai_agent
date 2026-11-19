@@ -4,16 +4,17 @@ description: "Створити базовий TypeScript Hello World за skill 
 disable-model-invocation: true
 ---
 # Create Project
+Виконуй за правилами агента [build-engineer](../../agents/build-engineer.agent.md).
 
 ## Передумови
 
-- Git-репозиторій уже перевірено prompt-ом `git-init`.
+- Git-репозиторій уже перевірено command-ом [`git-init`](../git-init/SKILL.md).
 - Відомі мова `TypeScript` і назва проєкту.
-- Доступний skill `.github/skills/project-scaffold/SKILL.md`.
+- Доступний skill [`project-scaffold`](../project-scaffold/SKILL.md).
 
 ## Дії
 
-1. Прочитай і застосуй `.github/skills/project-scaffold/SKILL.md`.
+1. Прочитай і застосуй [`project-scaffold`](../project-scaffold/SKILL.md).
 2. Перевір наявну структуру та не перезаписуй відповідні файли.
 3. Створи `src/hello.ts`, `package.json`, `tsconfig.json`, `README.md` і `.gitignore` за вимогами skill.
 4. Перевір `rootDir: "src"`, `outDir: "dist"` і команду запуску.

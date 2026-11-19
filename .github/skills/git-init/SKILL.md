@@ -4,6 +4,7 @@ description: "Підготувати Git-репозиторій, .gitignore і �
 disable-model-invocation: true
 ---
 # Git Init
+Виконуй за правилами агента [build-engineer](../../agents/build-engineer.agent.md).
 
 ## Передумови
 

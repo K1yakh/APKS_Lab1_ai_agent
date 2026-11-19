@@ -26,14 +26,14 @@ Skills завантажуються як спеціалізовані інстр
 
 ## Commands
 
-Commands реалізовані як prompt-файли:
+Commands реалізовані як skills-файли з `disable-model-invocation: true` і запускаються в Copilot Chat як `/назва`:
 
-- [`git-init`](../.github/prompts/git-init.prompt.md) — перевіряє Git, доповнює `.gitignore`, показує status і гілку;
-- [`create-project`](../.github/prompts/create-project.prompt.md) — застосовує skill `project-scaffold`;
-- [`create-build`](../.github/prompts/create-build.prompt.md) — застосовує skill `build-and-test`;
-- [`create-actions`](../.github/prompts/create-actions.prompt.md) — застосовує skill `github-actions`;
-- [`check`](../.github/prompts/check.prompt.md) — виконує read-only перевірки та виводить таблицю PASS/FAIL;
-- [`init`](../.github/prompts/init.prompt.md) — оркеструє всі етапи послідовно.
+- [`git-init`](../.github/skills/git-init/SKILL.md) — перевіряє Git, доповнює `.gitignore`, показує status і гілку;
+- [`create-project`](../.github/skills/create-project/SKILL.md) — застосовує skill `project-scaffold`;
+- [`create-build`](../.github/skills/create-build/SKILL.md) — застосовує skill `build-and-test`;
+- [`create-actions`](../.github/skills/create-actions/SKILL.md) — застосовує skill `github-actions`;
+- [`check`](../.github/skills/check/SKILL.md) — виконує read-only перевірки та виводить таблицю PASS/FAIL;
+- [`init`](../.github/skills/init/SKILL.md) — оркеструє всі етапи послідовно.
 
 ## Відповідність рекомендованій структурі
 
@@ -41,7 +41,7 @@ Commands реалізовані як prompt-файли:
 |---|---|
 | `CMakeLists.txt` | `package.json` + `tsconfig.json` (варіант 6: TypeScript, npm scripts, Vitest) |
 | Збірка й тести | `ci.sh` / `ci.bat`, які викликає `ci.yml` |
-| Commands | `.github/prompts/*.prompt.md`, запускаються в Copilot Chat як `/назва` |
+| Commands | `.github/prompts/*` (legacy prompt files) → `.github/skills/<command>/SKILL.md` з `disable-model-invocation: true` (новий agent runtime Copilot не підтримує prompt files; міграція засобами VS Code) |
 | Agent manifest | `.github/agents/build-engineer.agent.md` |
 | Skills | `.github/skills/<назва>/SKILL.md` (формат Agent Skills у VS Code) |
 
@@ -59,7 +59,7 @@ Commands реалізовані як prompt-файли:
 
 ## Обробка помилок у `init`
 
-`init` виконує prompts у такому порядку: `git-init` → `create-project` → `create-build` → `create-actions` → `check`. Після кожного кроку він перевіряє результат. Якщо команда або перевірка завершується помилкою, `init` зупиняється, називає крок і prompt, показує точну команду, релевантний вивід, код завершення та причину. Наступні етапи не виконуються, а робота не оголошується успішною.
+`init` виконує commands у такому порядку: `git-init` → `create-project` → `create-build` → `create-actions` → `check`. Після кожного кроку він перевіряє результат. Якщо команда або перевірка завершується помилкою, `init` зупиняється, називає крок і command, показує точну команду, релевантний вивід, код завершення та причину. Наступні етапи не виконуються, а робота не оголошується успішною.
 
 Перед початком `init` також вимагає гілку `feature/...`; на `develop` або `master` він має зупинитися, нічого не створюючи.
 
@@ -71,12 +71,12 @@ Commands реалізовані як prompt-файли:
 | `.github/skills/project-scaffold/SKILL.md` | Створення базової структури проєкту |
 | `.github/skills/build-and-test/SKILL.md` | Збірка, Vitest і локальні CI-скрипти |
 | `.github/skills/github-actions/SKILL.md` | Кросплатформний GitHub Actions workflow |
-| `.github/prompts/git-init.prompt.md` | Перевірка та підготовка Git |
-| `.github/prompts/create-project.prompt.md` | Запуск scaffold-етапу |
-| `.github/prompts/create-build.prompt.md` | Запуск build/test-етапу |
-| `.github/prompts/create-actions.prompt.md` | Запуск Actions-етапу |
-| `.github/prompts/check.prompt.md` | Read-only фінальна перевірка |
-| `.github/prompts/init.prompt.md` | Послідовна оркестрація всіх етапів |
+| `.github/skills/git-init/SKILL.md` | Перевірка та підготовка Git |
+| `.github/skills/create-project/SKILL.md` | Запуск scaffold-етапу |
+| `.github/skills/create-build/SKILL.md` | Запуск build/test-етапу |
+| `.github/skills/create-actions/SKILL.md` | Запуск Actions-етапу |
+| `.github/skills/check/SKILL.md` | Read-only фінальна перевірка |
+| `.github/skills/init/SKILL.md` | Послідовна оркестрація всіх етапів |
 | `package.json` | Manifest і npm scripts проєкту |
 | `tsconfig.json` | Параметри TypeScript-компіляції |
 | `src/hello.ts` | Hello World |

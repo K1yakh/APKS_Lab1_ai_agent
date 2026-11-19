@@ -4,16 +4,17 @@ description: "Створити кросплатформний GitHub Actions wor
 disable-model-invocation: true
 ---
 # Create Actions
+Виконуй за правилами агента [build-engineer](../../agents/build-engineer.agent.md).
 
 ## Передумови
 
 - `ci.sh`, `ci.bat` і `package-lock.json` існують.
 - Локальна збірка та тести проходять.
-- Доступний skill `.github/skills/github-actions/SKILL.md`.
+- Доступний skill [`github-actions`](../github-actions/SKILL.md).
 
 ## Дії
 
-1. Прочитай і застосуй `.github/skills/github-actions/SKILL.md`.
+1. Прочитай і застосуй [`github-actions`](../github-actions/SKILL.md).
 2. Створи `.github/workflows/ci.yml` для `push` і `pull_request` у `develop` та `master`.
 3. Додай одну job із matrix `ubuntu-latest`, `windows-latest`, `macos-latest`.
 4. Додай checkout, setup-node 22, виклик відповідного CI-скрипта та upload-artifact для `dist/`.
