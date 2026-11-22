@@ -33,11 +33,11 @@ TypeScript, npm scripts і Vitest.
 git checkout -b feature/lab1 develop
 ```
 
-Команда `/init` по черзі виконує `git-init`, `create-project`, `create-build`, `create-actions` і `check`. Після кожного кроку перевіряється результат; у разі помилки виконання зупиняється. Команда `/check` лише перевіряє проєкт і нічого не змінює.
+Команда `/lab-init` по черзі виконує `git-init`, `create-project`, `create-build`, `create-actions` і `check`. Після кожного кроку перевіряється результат; у разі помилки виконання зупиняється. Команда `/check` лише перевіряє проєкт і нічого не змінює.
 
 1. Відкрийте GitHub Copilot Chat у VS Code.
 2. Виберіть агента `build-engineer`.
-3. Уведіть `/init`.
+3. Уведіть `/lab-init`.
 
 ## Як зібрати й запустити проєкт
 

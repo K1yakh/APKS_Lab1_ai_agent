@@ -33,7 +33,7 @@ Commands реалізовані як skills-файли з `disable-model-invocat
 - [`create-build`](../.github/skills/create-build/SKILL.md) — застосовує skill `build-and-test`;
 - [`create-actions`](../.github/skills/create-actions/SKILL.md) — застосовує skill `github-actions`;
 - [`check`](../.github/skills/check/SKILL.md) — виконує read-only перевірки та виводить таблицю PASS/FAIL;
-- [`init`](../.github/skills/init/SKILL.md) — оркеструє всі етапи послідовно.
+- [`lab-init`](../.github/skills/lab-init/SKILL.md) — оркеструє всі етапи послідовно.
 
 ## Відповідність рекомендованій структурі
 
@@ -44,6 +44,7 @@ Commands реалізовані як skills-файли з `disable-model-invocat
 | Commands | `.github/prompts/*` (legacy prompt files) → `.github/skills/<command>/SKILL.md` з `disable-model-invocation: true` (новий agent runtime Copilot не підтримує prompt files; міграція засобами VS Code) |
 | Agent manifest | `.github/agents/build-engineer.agent.md` |
 | Skills | `.github/skills/<назва>/SKILL.md` (формат Agent Skills у VS Code) |
+| init → lab-init | Назва init зайнята вбудованою командою Copilot `/init` |
 
 ## Дані між етапами
 
@@ -57,11 +58,11 @@ Commands реалізовані як skills-файли з `disable-model-invocat
 
 Кожен етап перевіряє передумови попереднього етапу та не переходить далі після помилки.
 
-## Обробка помилок у `init`
+## Обробка помилок у `lab-init`
 
-`init` виконує commands у такому порядку: `git-init` → `create-project` → `create-build` → `create-actions` → `check`. Після кожного кроку він перевіряє результат. Якщо команда або перевірка завершується помилкою, `init` зупиняється, називає крок і command, показує точну команду, релевантний вивід, код завершення та причину. Наступні етапи не виконуються, а робота не оголошується успішною.
+`lab-init` виконує commands у такому порядку: `git-init` → `create-project` → `create-build` → `create-actions` → `check`. Після кожного кроку він перевіряє результат. Якщо команда або перевірка завершується помилкою, `lab-init` зупиняється, називає крок і command, показує точну команду, релевантний вивід, код завершення та причину. Наступні етапи не виконуються, а робота не оголошується успішною.
 
-Перед початком `init` також вимагає гілку `feature/...`; на `develop` або `master` він має зупинитися, нічого не створюючи.
+Перед початком `lab-init` також вимагає гілку `feature/...`; на `develop` або `master` він має зупинитися, нічого не створюючи.
 
 ## Файл → роль
 
@@ -76,7 +77,7 @@ Commands реалізовані як skills-файли з `disable-model-invocat
 | `.github/skills/create-build/SKILL.md` | Запуск build/test-етапу |
 | `.github/skills/create-actions/SKILL.md` | Запуск Actions-етапу |
 | `.github/skills/check/SKILL.md` | Read-only фінальна перевірка |
-| `.github/skills/init/SKILL.md` | Послідовна оркестрація всіх етапів |
+| `.github/skills/lab-init/SKILL.md` | Послідовна оркестрація всіх етапів |
 | `package.json` | Manifest і npm scripts проєкту |
 | `tsconfig.json` | Параметри TypeScript-компіляції |
 | `src/hello.ts` | Hello World |

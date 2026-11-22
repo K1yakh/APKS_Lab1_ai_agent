@@ -1,9 +1,9 @@
 ---
-name: init
+name: lab-init
 description: "Повністю підготувати й перевірити TypeScript Hello World через послідовність build-engineer commands"
 disable-model-invocation: true
 ---
-# Init
+# Lab-init
 Виконуй за правилами агента [build-engineer](../../agents/build-engineer.agent.md).
 
 ## Передумови
