@@ -18,7 +18,7 @@ disable-model-invocation: true
 2. Перевір наявність трьох skills (`project-scaffold`, `build-and-test`, `github-actions`) і шести commands (`git-init`, `create-project`, `create-build`, `create-actions`, `check`, `lab-init`) як `.github/skills/<назва>/SKILL.md`.
 3. Перевір структуру проєкту, scripts, `src/add.ts`, `tests/add.test.ts`, `BasicAddition`.
 4. Запусти `npm run build` і `npm test`.
-5. Перевір, що `ci.yml` містить `ubuntu-latest`, `windows-latest`, `macos-latest` і викликає лише `ci.sh` або `ci.bat`, без прямих npm-команд.
+5. Перевір, що `ci.yml` містить `ubuntu-latest`, `windows-latest`, `macos-latest`, викликає лише `ci.sh` або `ci.bat`, Windows-крок має `shell: cmd` або викликає `.\ci.bat`, а у `strategy` є `fail-fast: false`; прямі npm-команди мають бути відсутніми.
 6. Перевір, що `node_modules/` і `dist/` є в `.gitignore` та не відстежуються Git.
 7. Перевір, що `.gitattributes` містить правило `*.sh text eol=lf`.
 8. Перевір наявність `.github/agents/build-engineer.agent.md`. У ньому мають бути розділи «Роль», «Заборонені дії» (обмеження) і «Критерії успішного завершення».
@@ -59,6 +59,7 @@ Select-String -Path docs/ai-log.md -Pattern '\|.*Запит.*\|.*Проблем�
 ```
 
 Для YAML перевір окремо всі три runner-и, `ci.sh`/`ci.bat`, `checkout`, `setup-node`, `upload-artifact` і відсутність прямих npm-команд.
+Перевір, що Windows-крок явно має `shell: cmd` або виклик `.\ci.bat`, а у `strategy` присутній `fail-fast: false`.
 
 Перевірка Agent manifest має бути PASS лише за одночасної наявності всіх трьох розділів.
 
